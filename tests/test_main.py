@@ -55,3 +55,10 @@ def test_create_item():
     assert data["name"] == "Test Item"
     assert data["description"] == "Test Description"
     assert data["created"] is True
+
+
+def test_ping():
+    """Test the ping endpoint."""
+    response = client.get("/api/ping")
+    assert response.status_code == 200
+    assert response.json() == {"message": "pong"}
